@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity Sand and Granite Vendor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<style>
+    /* Default styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        position: relative;
+    }
+
+    nav img {
+        height: 100px;
+        width: 150px;
+    }
+
+    .nav-links ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+    }
+
+    @media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        justify-content: flex-end; /* Align nav links to the right */
+    }
+
+    .nav-links ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .back-button {
+        display: none;
+    }
+}
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+      
+        .nav-links ul {
+            display: none;
+        }
+
+        .nav-links ul li:first-child {
+            display: block;
+            margin-left: 0;
+        }
+
+        .nav-links ul li:first-child a {
+            display: block;
+            padding: 10px;
+        }
+
+      
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            width: 100%;
+            text-align: center;
+        }
+
+       /* Styles for the back button */
+.back-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent; /* Transparent background */
+  
+    color: rgb(249, 246, 246);
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 400px;
+    z-index: 1000;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background changes */
+}
+.back-button::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color:  rgb(113, 252, 113);
+    display: block;
+    margin: auto;
+    transition: 0.5s ease;
+}
+.back-button:hover::after {
+    width: 100%; /* Expands the line width on hover */
+    background: green; /* Ensure the line color is green on hover */
+}
+
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light overlay effect on hover */
+    border-color: #333; /* Slightly darker border on hover */
+}
+
+    }
+
+    @media (min-width: 769px) {
+        .nav-links ul {
+            display: flex;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+      
+    }
+
+    /* Styles for the toggle button */
+  
+
+    .nav-toggle.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .nav-toggle.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    
+
+    .nav-menu ul li {
+        margin: 0;
+    }
+
+    .nav-menu ul li a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .nav-menu ul li a:hover {
+        background: #f0f0f0;
+    }
+    /* Smallest phone screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        position: absolute;
+    }
+
+    nav {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: flex-start; /* Align items to the start */
+        padding: 10px;
+    }
+
+    nav img {
+        height: 100px;
+        width: 150px;
+    }
+    .nav-links {
+        display: flex; /* Hide navigation links */
+        position: fixed;
+    }
+
+  
+    .nav-menu {
+        display: flex; /* Hide menu initially */
+        position: fixed;
+        top: 60px; /* Adjust position to align with nav */
+        right: 0;
+        background: white;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-menu ul li {
+        margin: 0;
+    }
+
+    .nav-menu ul li a {
+        position: fixed;
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .nav-menu ul li a:hover {
+        background: #f0f0f0;
+    }
+
+    /* Adjust the back button position for smallest screens */
+    .back-button {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: transparent; /* Transparent background */
+        color: rgb(249, 246, 246);
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        position: fixed;
+        top: 15px;
+        right: 15px; /* Move to the right side */
+        z-index: 1000;
+        transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+        overflow: hidden;
+        transform: translate(0);
+        justify-content: left;
+    }
+
+    .back-button::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: rgb(113, 252, 113);
+        display: block;
+        margin: auto;
+        transition: 0.5s ease;
+    }
+
+    .back-button:hover::after {
+        width: 100%; /* Expand line width on hover */
+        background: green; /* Line color on hover */
+    }
+
+    .back-button:hover {
+        background-color: rgba(0, 0, 0, 0.1); /* Light overlay effect on hover */
+        border-color: #333; /* Slightly darker border on hover */
+    }
+
+    /* Ensure proper scaling for images */
+    .delivery img,
+    .design img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+/* Tablet screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        font-size: 16px; /* Slightly larger font size for tablets */
+    }
+
+    nav {
+        flex-direction: row; /* Horizontal layout for tablet */
+        justify-content: space-between; /* Space between logo and links */
+        align-items: center;
+        padding: 15px;
+    }
+    nav img {
+        height: 100px;
+        width: 150px;
+    }
+
+
+    .back-button {
+        display: block; /* Display back button on tablets */
+        text-align: center;
+        padding: 10px;
+        background-color: transparent; /* Transparent background */
+        color: rgb(253, 239, 239); /* Text color */
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        position: absolute; /* Position absolutely */
+        right: 15px; /* Align to the right */
+        top: 15px; /* Space from the top */
+        z-index: 1000; /* Ensure it appears above other elements */
+    }
+
+    .back-button::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: rgb(113, 252, 113);
+        display: block;
+        margin: auto;
+        transition: 0.5s ease;
+    }
+
+    .back-button:hover::after {
+        width: 100%; /* Expands the line width on hover */
+        background: green; /* Ensure the line color is green on hover */
+    }
+
+    .back-button:hover {
+        background-color: rgba(0, 0, 0, 0.1); /* Light overlay effect on hover */
+        border-color: #333; /* Slightly darker border on hover */
+    }
+
+    /* Ensure proper scaling for images */
+    .delivery img,
+    .design img {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Adjust sections for tablets */
+    .delivery,
+    .design {
+        padding: 20px; /* Add padding for better spacing */
+    }
+
+    .pro-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; /* Space between items */
+    }
+
+    .pro {
+        flex: 1 1 45%; /* Flex items to take up 45% of the width */
+        box-sizing: border-box;
+    }
+
+    .top img {
+        width: 100%; /* Full width for images */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+/* Smallest phone screens */
+@media (max-width: 480px) {
+    /* Adjust font size for smaller screens */
+    body {
+        font-size: 14px;
+    }
+
+    /* Stack nav items vertically and align items to the start */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    /* Reduce logo size */
+    nav img {
+        height: 100px;
+        width: 150px;
+    }
+
+    /* Hide navigation links */
+    .nav-links {
+            display: none;
+        }
+
+      
+        .nav-links ul {
+            display: none;
+        }
+
+        .nav-links ul li:first-child {
+            display: block;
+            margin-left: 0;
+        }
+
+        .nav-links ul li:first-child a {
+            display: block;
+            padding: 10px;
+        }
+
+      
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            width: 100%;
+            text-align: center;
+        }
+
+       /* Styles for the back button */
+.back-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent; /* Transparent background */
+  
+    color: rgb(249, 246, 246);
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    right: 20px; /* Align to the right */
+        left: 300px;
+    z-index: 1000;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background changes */
+}
+.back-button::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color:  rgb(113, 252, 113);
+    display: block;
+    margin: auto;
+    transition: 0.5s ease;
+}
+.back-button:hover::after {
+    width: 100%; /* Expands the line width on hover */
+    background: green; /* Ensure the line color is green on hover */
+}
+
+.back-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light overlay effect on hover */
+    border-color: #333; /* Slightly darker border on hover */
+}
+
+    /* Adjust the layout for the material section */
+    .delivery {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items horizontally */
+        padding: 20px; /* Add padding for better spacing */
+    }
+
+    .delivery .row {
+        display: flex;
+        flex-direction: column; /* Stack image on top of text */
+        align-items: center; /* Center align items horizontally */
+    }
+
+    .delivery .top img {
+        width: 100%; /* Full width for images */
+        height: auto; /* Maintain aspect ratio */
+        margin-left: -75px;
+    }
+
+    .delivery .top h4, .material .top p {
+        text-align: left; /* Center text horizontally */
+    }
+}
+@media (min-width: 344px) and (max-width: 345px){
+          /* Styles for the back button */
+.back-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent; /* Transparent background */
+  
+    color: rgb(249, 246, 246);
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    right: 20px; /* Align to the right */
+        left: 280px;
+    z-index: 1000;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for border and background changes */
+}
+}
+</style>
+<script>
+    // JavaScript to handle the toggle button functionality
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+</script>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a> <img src="Logo.png" alt="Logo"></a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+        <a href="index.html" class="back-button">Home</a>
+        </nav>
+
+
+
+
+        <h1>Delivery</h1>
+    </section>
+
+    <section class="delivery">
+        <div class="row">
+            <div class="top">
+                <h4>WHEN PROPERLY MOBILIZED WE CAN MOVE TO ANY LOCATION IN THE COUNTRY AND DELIVER</h4>
+                <p> Experience Top-Notch Quality and Delivery with us</p>
+                <p>TRANSPORTATION COST DEPENDS ON LOCATION AND QUANTITY.</p>
+            </div>
+    
+            <div class="top">
+                <img src="Delivery/del1.jpg" alt="">
+            </div>
+        </div>   
+    </section>
+
+    <section class="design">
+        <h4>TRANSPORTATION COST DEPENDS ON LOCATION AND QUANTITY.</h4>
+
+        <div class="pro-container">
+            <div class="pro">
+                <img src="Delivery/del2.JPG" alt="">
+                <div class="des">
+                    <h5>Lagos State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/del3.JPG" alt="">
+                <div class="des">
+                    <h5>Abuja FCT</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/deli4.JPG" alt="">
+                <div class="des">
+                    <h5>Delta State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/del5.JPG" alt="">
+                <div class="des">
+                    <h5>Enugu State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/del6.JPG" alt="">
+                <div class="des">
+                    <h5>Kano State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/del7.JPG" alt="">
+                <div class="des">
+                    <h5>Ogun State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/del8.JPG" alt="">
+                <div class="des">
+                    <h5>Kwara State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/Edo-State.jpg" alt="">
+                <div class="des">
+                    <h5>Edo State</h5>
+                </div>
+            </div>
+
+            <div class="pro">
+                <img src="Delivery/del9.JPG" alt="">
+                <div class="des">
+                    <h5>Oyo State</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Celebrity Sand and Granite - Building a reputation for quality, reliability, and exceptional service in the granite and sand industry. With a strong commitment to customer satisfaction, we strive to deliver <br>top-notch products and services that exceed expectations.</p>
+
+        <div class="icons">
+            <a href="https://wa.me/2348037136667" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/fillingsand?sfnsn=scwspwa&mibextid=RUbZ1f" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/celebritysandandgrainte?utm_source=qr&igsh=eDllYW5oYXoyNnln" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://x.com/kachikwul?t=tbgd2Uu-TOo2tmDxFXVZvw&s=08" target="_blank" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/esiaka-katchy-christian-6b4862323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          </div>
+          
+
+
+              <p>Copyright &copy; 2024 by KiYOSET Code | All Rights Reserved.</p>
+    </section>
+
+    
+</body>
+</html>

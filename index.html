@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity Sand and Granite Vendor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+  /* Media Queries for Phone and Tablet Screens */
+/* Media Queries for Phone Screens */
+@media (max-width: 768px) {
+    
+    .header .nav-links ul {
+        display: none;
+    }
+
+    .header .nav-links {
+        display: block;
+        text-align: center;
+    }
+
+    .header .nav-links ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0; /* Remove margin */
+    }
+
+    .header .nav-links ul li {
+        margin: 0; /* Remove margin */
+    }
+
+    .header .nav-links ul li a {
+        text-decoration: none;
+        color: #0a0808; /* Adjust color if needed */
+        font-size: 18px; /* Adjust font size */
+        display: block;
+        padding: 10px 0; /* Reduce padding */
+        border-bottom: 1px solid rgb(14, 197, 11); /* Add a border for better visibility */
+    }
+
+    .header .nav-links ul li a:hover {
+        background: #f0f0f0;
+    }
+
+    /* Add margin to the "Home" link specifically */
+    .header .nav-links ul li:first-child {
+        margin-top: 45px; /* Adjust this value to move it downward */
+    }
+
+    .text-box h1 {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .services .row, .projects .row, .testimonial .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services .service-col, .projects .projects-col, .testimonial .test-col {
+        width: 90%;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .services .service-col i, .projects .projects-col img, .testimonial .test-col img {
+        width: 80px; /* Adjust icon and image size */
+        height: 80px;
+    }
+
+    .services .service-col h3, .projects .projects-col h3, .testimonial .test-col h3 {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .cta h1 {
+        font-size: 22px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects{
+        padding: 0px;
+        /* litteraly oluchukwu's contribution to save your ass */
+    }
+    .projects .row {
+        flex-direction: row;
+        align-items: left;
+    }
+
+    .projects .projects-col {
+        width: 90%;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .projects .projects-col img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .projects .projects-col h3 {
+        font-size: 15px;
+    }
+
+    .projects p {
+        text-align: center;
+        padding: 0 15px;
+    }
+}
+
+/* Media Queries for Tablet Screens */
+@media (max-width: 992px) {
+    .projects .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects .projects-col {
+        width: 80%;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .projects .projects-col img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .projects .projects-col h3 {
+        font-size: 17px;
+    }
+
+    .projects p {
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+/* Styles for the toggle button */
+.nav-toggle {
+    display: none; /* Hide by default */
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        right: 10px; /* Adjust position */
+        top: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+   
+/* Navigation links container */
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 500px; /* Adjust width as needed */
+    height: calc(50% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+   /* Navigation links */
+   .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+
+
+}
+
+/* General Styles */
+nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        /* About Us Heading */
+        .sub-header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 30px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 900px) {
+            .nav-links ul {
+                display: none;
+            }
+
+            .nav-links.active ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sub-header h1 {
+                font-size: 20px;
+            }
+         /* Navigation links */
+}
+
+@media (max-width: 600px) {
+    .sub-header h1 {
+        font-size: 20px;
+        margin: 15px;
+    }
+}
+
+
+        /* Media queries */
+        @media (max-width: 900px) { /* Tablet screens */
+            .nav-links ul {
+                display: none;
+            }
+
+            .nav-links.active ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sub-header h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sub-header h1 {
+                font-size: 14px;
+                margin: 15px;
+            }
+        
+        }
+
+        @media (max-width: 768px) { /* Phone screens */
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-links.open {
+                display: flex;
+            }
+        }
+        
+@media (max-width: 480px) {  .projects{
+        padding: 0px;
+        /* litteraly oluchukwu's contribution to save your ass */
+    }
+    .projects .row {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .projects .projects-col {
+        width: 90%; /* Adjust width to fit the screen */
+        margin: 10px 0; /* Add margin for spacing */
+        text-align: center; /* Center align text */
+    }
+
+    .projects .projects-col img {
+        width: 100%; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center align images */
+    }
+
+    .projects .projects-col h3 {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .projects p {
+        text-align: center; /* Center align paragraph text */
+        padding: 0 15px; /* Add padding for better readability */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        right: 10px; /* Adjust position */
+        top: 20px;
+        font-size: 32px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+/* Navigation links container */
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 820px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 13px; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 60px;
+}
+ /* Navigation links */
+ .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+
+    /* Hero Section */
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-section p {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        max-width: 90%;
+    }
+
+    /* Content Sections */
+    .content-section {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .content-section p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+    }
+
+    /* Adjust column layout */
+    .content-columns {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Service Boxes */
+    .service-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+    }
+
+    .service-box h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .service-box p {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    /* Customer Review Section */
+    .customer-review-section {
+        padding: 30px 20px;
+        background-color: #f9f9f9;
+    }
+
+    .customer-review {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+    }
+
+    .customer-review p {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        max-width: 90%;
+        line-height: 1.5;
+    }
+
+    .customer-review h3 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+
+    .customer-review i {
+        margin: 0 5px;
+        font-size: 1.6rem;
+        color: #FFD700;
+    }
+
+    /* Footer Section */
+    footer {
+        padding: 30px 20px;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+    }
+
+    footer p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    footer ul {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer ul li {
+        font-size: 1.2rem;
+    }
+
+    /* Buttons */
+    button {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Image Adjustments */
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        margin-bottom: 30px;
+    }
+    .test-col {
+        flex-basis: 44%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        margin-right: 15px; /* Add gap between the columns */
+        text-align: center; /* Center text alignment */
+        background: lightgreen;
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align all items horizontally */
+    }
+
+    /* Adjust gap for the last column */
+    .test-col:last-child {
+        margin-right: 0;
+    }
+
+    .test-col img {
+        height: 40px;
+        margin-bottom: 15px; /* Add space below the image */
+        border-radius: 50%;
+    }
+
+    .test-col p {
+        padding: 0;
+        margin: 10px 0; /* Add space above and below the paragraph */
+        text-align: center; /* Center-align the paragraph text */
+    }
+
+    .test-col h3 {
+        margin-top: 15px;
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        text-align: center; /* Center-align the heading text */
+    }
+
+    .test-col i {
+        color: green;
+        margin-right: 5px; /* Add space between the icons */
+    }
+
+    /* Align the icons to the center */
+    .test-col .icons-container {
+        display: flex;
+        justify-content: center; /* Center-align the icons horizontally */
+        margin-top: 10px; /* Add space above the icons */
+    }
+}
+@media (min-width: 768px) and (max-width: 912px) {
+    /* Projects Section */
+    .projects {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding: 140px;
+        margin-top: 8vh;
+        padding-left: 5%; /* Add padding to push content to the right */
+        padding-right: 5%; /* Ensure there’s padding on both sides for consistent spacing */
+    }
+
+    .projects .row {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .projects .projects-col {
+        width: 90%; /* Adjust width to fit the screen */
+        margin: 20px 0; /* Increase margin for spacing between columns */
+        text-align: center; /* Center align text */
+    }
+
+    .projects .projects-col img {
+        width: 100%; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center align images */
+        border-radius: 10px; /* Ensure images have rounded corners */
+    }
+
+    .projects .projects-col h3 {
+        font-size: 18px; /* Increase font size for better readability */
+        margin-top: 20px; /* Add top margin to create space above the heading */
+        margin-bottom: 10px; /* Add bottom margin for spacing below the heading */
+        text-align: center;
+    }
+
+    .projects p {
+        text-align: center; /* Center align paragraph text */
+        padding: 0 15px; /* Add padding for better readability */
+        margin-top: 10px; /* Add margin to separate from elements above */
+        margin-bottom: 20px; /* Add margin to create space below paragraphs */
+    }
+}
+@media (min-width: 768px) and (max-width: 769px) {
+    .test-col {
+        flex-basis: 44%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        margin-right: 15px; /* Add gap between the columns */
+        text-align: center; /* Center text alignment */
+        background: lightgreen;
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align all items horizontally */
+    }
+
+    /* Adjust gap for the last column */
+    .test-col:last-child {
+        margin-right: 0;
+    }
+
+    .test-col img {
+        height: 40px;
+        margin-bottom: 15px; /* Add space below the image */
+        border-radius: 50%;
+    }
+
+    .test-col p {
+        padding: 0;
+        margin: 10px 0; /* Add space above and below the paragraph */
+        text-align: center; /* Center-align the paragraph text */
+    }
+
+    .test-col h3 {
+        margin-top: 15px;
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        text-align: center; /* Center-align the heading text */
+    }
+
+    .test-col i {
+        color: green;
+        margin-right: 5px; /* Add space between the icons */
+    }
+
+    /* Align the icons to the center */
+    .test-col .icons-container {
+        display: flex;
+        justify-content: center; /* Center-align the icons horizontally */
+        margin-top: 10px; /* Add space above the icons */
+    }
+}
+
+@media (min-width: 300px) and (max-width: 570px) {
+      /* Projects Section */
+      .projects {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding: 140px;
+        margin-top: 8vh;
+        padding-left: 5%; /* Add padding to push content to the right */
+        padding-right: 5%; /* Ensure there’s padding on both sides for consistent spacing */
+    }
+
+    .projects .row {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .projects .projects-col {
+        width: 90%; /* Adjust width to fit the screen */
+        margin: 20px 0; /* Increase margin for spacing between columns */
+        text-align: center; /* Center align text */
+    }
+
+    .projects .projects-col img {
+        width: 100%; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center align images */
+        border-radius: 10px; /* Ensure images have rounded corners */
+    }
+
+    .projects .projects-col h3 {
+        font-size: 18px; /* Increase font size for better readability */
+        margin-top: 20px; /* Add top margin to create space above the heading */
+        margin-bottom: 10px; /* Add bottom margin for spacing below the heading */
+        text-align: center;
+    }
+
+    .projects p {
+        text-align: center; /* Center align paragraph text */
+        padding: 0 15px; /* Add padding for better readability */
+        margin-top: 10px; /* Add margin to separate from elements above */
+        margin-bottom: 20px; /* Add margin to create space below paragraphs */
+    }
+    .test-col {
+        flex-basis: 44%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        margin-right: 15px; /* Add gap between the columns */
+        text-align: center; /* Center text alignment */
+        background: lightgreen;
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align all items horizontally */
+    }
+
+    /* Adjust gap for the last column */
+    .test-col:last-child {
+        margin-right: 0;
+    }
+
+    .test-col img {
+        height: 40px;
+        margin-bottom: 15px; /* Add space below the image */
+        border-radius: 50%;
+    }
+
+    .test-col p {
+        padding: 0;
+        margin: 10px 0; /* Add space above and below the paragraph */
+        text-align: center; /* Center-align the paragraph text */
+    }
+
+    .test-col h3 {
+        margin-top: 15px;
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        text-align: center; /* Center-align the heading text */
+    }
+
+    .test-col i {
+        color: green;
+        margin-right: 5px; /* Add space between the icons */
+    }
+
+    /* Align the icons to the center */
+    .test-col .icons-container {
+        display: flex;
+        justify-content: center; /* Center-align the icons horizontally */
+        margin-top: 10px; /* Add space above the icons */
+    }
+}
+    
+@media (min-width: 1024px) and (max-width: 1025px) {
+    .test-col {
+        flex-basis: 44%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        margin-right: 15px; /* Add gap between the columns */
+        text-align: center; /* Center text alignment */
+        background: lightgreen;
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align all items horizontally */
+    }
+
+    /* Adjust gap for the last column */
+    .test-col:last-child {
+        margin-right: 0;
+    }
+
+    .test-col img {
+        height: 40px;
+        margin-bottom: 15px; /* Add space below the image */
+        border-radius: 50%;
+    }
+
+    .test-col p {
+        padding: 0;
+        margin: 10px 0; /* Add space above and below the paragraph */
+        text-align: center; /* Center-align the paragraph text */
+    }
+
+    .test-col h3 {
+        margin-top: 15px;
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+        text-align: center; /* Center-align the heading text */
+    }
+
+    .test-col i {
+        color: green;
+        margin-right: 5px; /* Add space between the icons */
+    }
+
+    /* Align the icons to the center */
+    .test-col .icons-container {
+        display: flex;
+        justify-content: center; /* Center-align the icons horizontally */
+        margin-top: 10px; /* Add space above the icons */
+    }
+}
+@media (min-width: 820px) and (max-width: 855px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        right: 10px; /* Adjust position */
+        top: 20px;
+        font-size: 39px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+      
+/* Navigation links container */
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 850px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+
+    /* Navigation links */
+    .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+ /* Navigation links list */
+ .nav-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    /* List items */
+    .nav-links ul li {
+        bottom: -60px;
+        margin: 0;
+        position: relative;
+        width: 100%; /* Full width of container */
+        padding: 20px;
+    }
+.service-col {
+    width: 500px;
+    flex-basis: 31%;
+    background: rgb(177, 255, 177);
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    cursor: pointer;
+}
+}
+
+@media (min-width: 412px) and (max-width: 431px) {
+    
+/* Navigation links container */
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 460px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+   /* Navigation links */
+   .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 50px;
+}
+}
+
+@media (min-width: 370px) and (max-width: 376px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: -20px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+   /* Navigation links */
+   .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+}
+@media (min-width: 500px) and (max-width: 570px) {
+    .nav-links {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 570px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+    overflow-y: hidden;
+}
+
+    /* Navigation links */
+    .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+    
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 35px;
+}
+}
+@media (min-width: 360px) and (max-width: 361px) {   
+     .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 390px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+   /* Navigation links */
+   .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+    
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 39px;
+}
+}
+@media (min-width: 344px) and (max-width: 345px) {
+    .nav-links {
+    width: 375px; /* Adjust width as needed */
+    height: 100%;
+    }
+       /* Navigation links */
+       .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+        
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 45px;
+} 
+  }
+  @media (min-width: 912px) and (max-width: 913px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        right: 10px; /* Adjust position */
+        top: 20px;
+        font-size: 36px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+  .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 990px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+   /* Show navigation links when active */
+   .nav-links.active {
+        transform: translateX(0); /* Slide in from the left */
+    }
+
+    /* Navigation links list */
+    .nav-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    /* List items */
+    .nav-links ul li {
+        bottom: -60px;
+        margin: 0;
+        position: relative;
+        width: 100%; /* Full width of container */
+        padding: 90px;
+    }
+
+    /* Navigation links */
+    .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 20px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+    /* Hover effect for navigation links */
+    .nav-links ul li a:hover {
+        background: #f0f0f0;
+    }
+  }
+@media (min-width: 370px) and (max-width: 376px) {
+    
+  .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+ /* Navigation links */
+ .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+        
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 32px;
+}
+
+}
+@media (min-width: 390px) and (max-width: 391px) {   
+     .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 430px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+   /* Navigation links */
+   .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+    
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 45px;
+}
+
+}
+
+
+@media (min-width: 430px) and (max-width: 431px) {
+    
+    /* Navigation links container */
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 480px; /* Adjust width as needed */
+        height: 100%;
+        background: white;
+        color: black;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999; /* Ensure the menu is below the toggle button */
+        overflow: hidden;
+        display: flex; /* Use flexbox to center content */
+        flex-direction: column; /* Stack items vertically */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        text-align: center; /* Center text */
+    }
+       /* Navigation links */
+       .nav-links ul li a {
+            text-decoration: none;
+            color: black;
+            border-bottom: 1px solid green; /* Green line under each link */
+            font-size: 18px;
+            display: block;
+            padding: 10px 0;
+            margin: 0;
+            width: 100%; /* Ensure the links fill the container */
+            text-align: left; /* Align text to the left */
+            padding-left: 15px; /* Add some padding to the left for spacing */
+            box-sizing: border-box;
+        }
+    
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 53px;
+}
+
+    }    
+    @media (min-width: 820px) and (max-width: 855px) {
+    .nav-toggle {
+        display: block;
+        position: fixed;
+        right: 10px; /* Adjust position */
+        top: 20px;
+        font-size: 39px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+
+      
+/* Navigation links container */
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 890px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+
+    /* Navigation links */
+    .nav-links ul li a {
+        text-decoration: none;
+        color: black;
+        border-bottom: 1px solid green; /* Green line under each link */
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%; /* Ensure the links fill the container */
+        text-align: left; /* Align text to the left */
+        padding-left: 15px; /* Add some padding to the left for spacing */
+        box-sizing: border-box;
+    }
+
+        
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+    padding: 80px;
+}
+}
+
+
+
+
+</style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+    });
+});
+
+    </script>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a> <img src="Logo.png" alt=""></a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html"> Home</a></li>
+                    <li><a href="about.html"> About</a></li>
+                    <li><a href="#services"> Services</a></li>
+                    <li><a href="#projects"> Projects</a></li>
+                    <li><a href="#blog"> Blog</a></li>
+                    <li><a href="contact.html"> Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="text-box">
+            <p>Welcome to...</p>
+            <h1><span>C</span>elebrity Sand and Granite</h1>
+            <a href="#services" class="hero-btn"><i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h1>Our Services</h1>
+        <p>Our expert teams go above and beyond to provide advanced solutions to material 
+            constraints, ensuring the most efficient transport of materials. 
+            Below is a detailed overview of the services we provide:</p>
+
+            <div class="row">
+                <div class="service-col" onclick="window.location.href='materials.html';">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h3>Materials</h3>
+                    <p> We develop and manage resources for safe and sustainable 
+                        materials production, creating value in the communities where we operate and supporting our customers’ success.</p>
+                </div>
+
+                <div class="service-col">
+                    <i class="fa-solid fa-shop"></i>
+                    <h3>Sales</h3>
+                    <p> Our goal is to provide your business with everything needed on the job 
+                        from safety to everyday tools and more. We keep our prices low and our customer service high.</p>
+                </div>
+
+                <div class="service-col" onclick="window.location.href='delivery.html';">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Delivery</h3>
+                    <p>When properly mobilized we can move to <strong>ANY LOCATION</strong> in the Country and 
+                        deliver, transportation cost depends on location and quantity.</p>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="projects" id="projects">
+        <h1>Our Projects</h1>
+        <p>From complex infrastructure to minor construction, high-value partnerships power our
+             projects and fuel our mission to build a better world together.</p>
+
+
+             <div class="row">
+                <div class="projects-col">
+                    <img src="projects/p1.jpg" alt="">
+                    <h3>CSG Embarks on Rehabilitation Project Near Lagos State, Nigeria</h3>
+                    <p>Providing useful resources to help organize a project with visible success.</p>
+                </div>
+
+                <div class="projects-col">
+                    <img src="projects/p2.jpg" alt="">
+                    <h3>Major agent to Saxfin quarry</h3>
+                    <p>Supplied 80% materials to Horizon ville and Smart city Estates located at ikate 
+                        lekki developed by GT Rich LTD</p>
+                </div>
+
+                <div class="projects-col">
+                    <img src="projects/p3.jpg" alt="">
+                    <h3>Concrete Aggregate</h3>
+                    <p>Our sand and granite deposits produce natural concrete aggregates. These aggregates are 
+                        in high demand for ready mix concrete, masonry block, concrete pavers, and pre-cast concrete products.  </p>
+                </div>
+          </div>
+    </section>
+
+    <section class="testimonial" id="blog">
+        <h1>Customer Reviews</h1>
+        <p>Testimonial from our clients so far.</p>
+
+        <div class="row">
+            <div class="test-col">
+                <img src="Blog/b1.JPG" alt="">
+            <div>
+                <p>"Customer service is supereb, and i will rate there 10/10. 
+                    I personally will recommend you to CSG to anyone who's starting there building projects"</p>
+                     <h3>Mr. Jude Ogundele</h3>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+            </div>
+            </div>
+            
+            <div class="test-col">
+                <img src="Blog/b2.JPG" alt="">
+            <div>
+                <p>"The granite countertops we purchased are absolutely stunning!
+                     The quality is exceptional and they've added so much value to our home. The team at 
+                     CSG was incredibly helpful throughout the entire process.
+                      They helped us choose the perfect stone for our kitchen and the installation was flawless."</p>
+                     <h3>Mr. Gabriel Akintolu</h3>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-regular fa-star"></i>
+            </div>
+            </div> 
+        </div>
+    </section>
+
+    <section class="cta">
+        <h1>Ready To Start Your Project? <br> Contact Us For a Free Consultation.</h1>
+        <a href="contact.html" class="hero-btn">CONTACT US</a>
+    </section>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Celebrity Sand and Granite - Building a reputation for quality, reliability, and exceptional service in the granite and sand industry. With a strong commitment to customer satisfaction, we strive to deliver <br>top-notch products and services that exceed expectations.</p>
+
+              <div class="icons">
+                <a href="https://wa.me/2348037136667" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/fillingsand?sfnsn=scwspwa&mibextid=RUbZ1f" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/celebritysandandgrainte?utm_source=qr&igsh=eDllYW5oYXoyNnln" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="https://x.com/kachikwul?t=tbgd2Uu-TOo2tmDxFXVZvw&s=08" target="_blank" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/esiaka-katchy-christian-6b4862323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+              </div>
+              
+
+              <p>Copyright &copy; 2024 by KiYOSET Code | All Rights Reserved.</p>
+    </section>
+
+    
+</body>
+</html>

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity Sand and Granite Vendor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function validateForm() {
+            var fullName = document.querySelector('input[placeholder="Full Name"]').value;
+            var email = document.querySelector('input[placeholder="Email Address"]').value;
+            var mobileNumber = document.querySelector('input[placeholder="Mobile Number"]').value;
+            var emailSubject = document.querySelector('input[placeholder="Email Subject"]').value;
+            var message = document.querySelector('textarea').value;
+
+            var gmailPattern = /^[^ ]+@gmail\.com$/i;
+            var phonePattern = /^(\+234|0)[0-9]{10}$/; // For Nigerian phone numbers
+
+            if (fullName === "" || email === "" || mobileNumber === "" || emailSubject === "" || message === "") {
+                alert("Please fill out all fields.");
+                return false;
+            }
+
+            if (!email.match(gmailPattern)) {
+                alert("Please enter a valid Gmail address (e.g., user@gmail.com).");
+                return false;
+            }
+
+            if (!mobileNumber.match(phonePattern)) {
+                alert("Invalid phone number. Please enter a valid Nigerian number starting with 0 or +234.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Prevent alphabetic characters in the phone number field
+        document.addEventListener("DOMContentLoaded", function() {
+            var phoneInput = document.querySelector('input[placeholder="Mobile Number"]');
+            
+            phoneInput.addEventListener("input", function(event) {
+                var inputValue = phoneInput.value;
+
+                // Remove any characters that are not digits, +, or -
+                phoneInput.value = inputValue.replace(/[^0-9\+\-]/g, '');
+            });
+        });
+    </script>
+   <script>
+    // Function to adjust the toggle button position based on screen width
+    function adjustToggleButtonPosition() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth <= 321) {
+            navToggle.style.right = '5px';
+            navToggle.style.top = '5px';
+        } else if (screenWidth <= 600) {
+            navToggle.style.right = '10px';
+            navToggle.style.top = '10px';
+        } else if (screenWidth <= 900) {
+            navToggle.style.right = '15px';
+            navToggle.style.top = '15px';
+        } else {
+            navToggle.style.right = '20px';
+            navToggle.style.top = '20px';
+        }
+    }
+    // Initial adjustment
+    adjustToggleButtonPosition();
+
+    // Adjust on resize
+    window.addEventListener('resize', adjustToggleButtonPosition);
+</script>
+<script>function detectDevice() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    if (/android/i.test(userAgent)) {
+        // Android device
+        document.body.classList.add('android');
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        // iOS device
+        document.body.classList.add('ios');
+    }
+}
+
+function adjustForDevices() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width <= 480) {
+        // Example for very small devices like older iPhones
+        document.body.classList.add('small-device');
+    } else if (width <= 768) {
+        // Example for tablets
+        document.body.classList.add('tablet-device');
+    } else if (width <= 1024) {
+        // Example for small laptops or large tablets
+        document.body.classList.add('small-laptop');
+    } else {
+        // Default for larger screens
+        document.body.classList.add('large-screen');
+    }
+}
+
+window.addEventListener('resize', adjustForDevices);
+window.addEventListener('load', () => {
+    detectDevice();
+    adjustForDevices();
+});
+</script>
+
+
+</style>
+   <style>
+        /* General styles */
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+/* Text Button Styles */
+.text-button {
+    background-color: #6A7AFF; /* Your preferred background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px; /* Adjust border radius if needed */
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+        input, textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Navbar styles */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        /* Removed borders around nav links */
+        .nav-links ul li a {
+            text-decoration: none;
+            color: rgb(243, 237, 237);
+            font-size: 18px;
+            display: block;
+            padding: 10px 20px;
+            border: none; /* Ensure no borders are present */
+       }
+            .sub-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Center the content horizontally */
+                justify-content: center; /* Center the content vertically */
+                text-align: center; /* Center the text */
+                padding: 20px; /* Adjust padding as needed */
+            }
+
+            .sub-header h1 {
+                font-size: 36px;
+                margin: 0; /* Remove default margin */
+                padding: 0; /* Remove default padding */
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: center; /* Center the navbar contents */
+                padding: 15px;
+                width: 100%; /* Ensure the navbar takes full width */
+            }
+
+            .nav-links {
+                display: flex;
+                justify-content: center; /* Center the navigation links */
+                width: 100%; /* Ensure the nav links take full width */
+            }
+
+            .nav-links ul {
+                display: flex;
+                justify-content: center; /* Center the list items */
+                gap: 20px; /* Space between nav items */
+            }
+
+            .nav-links ul li {
+                margin: 0; /* Remove default margin */
+            }
+         /* Toggle Button Styles */
+         .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: rgb(55, 188, 81);
+            cursor: pointer;
+        }
+
+            @media (min-width: 321px) and (max-width: 431px) {
+
+            
+                .nav-toggle {
+        display: block; /* Show the toggle button */
+        position: fixed;
+        right: -200px; /* Adjust positioning */
+        top: 15px; /* Adjust positioning */
+        font-size: 24px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure it's above other content */
+    }
+
+ /* Keep the toggle button as is */
+.nav-toggle {
+    display: block; /* Show the toggle button */
+    position: fixed;
+    right: -150px; /* Adjust positioning */
+    top: 15px; /* Adjust positioning */
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    color: rgb(55, 188, 81);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+/* Navigation links container */
+.nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 380px; /* Adjust width as needed */
+    height: calc(53% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+/* Image styling */
+nav img {
+    margin-right: 250px;
+    margin-top: -200px;
+    width: 100px;
+}
+
+    nav img {
+        margin-right: 250px;
+        margin-top: -200px;
+        width: 100px;
+    }
+nav img {
+    margin-right: 250px;
+    margin-top: -200px;
+    width: 100px;
+}
+
+
+
+/* Ensure the form container is centered and has proper width */
+form {
+    max-width: 100%; /* Ensure the form is full width */
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Make all input boxes stack vertically */
+form .input-box {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between;
+    width: 100%; /* Make sure it takes full width */
+    margin-bottom: 15px; /* Add space between input fields */
+}
+
+/* Ensure each form input field takes full width */
+form .input-box input,
+form textarea {
+    width: 100%; /* Full width of the form */
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--snd-bg-color);
+    border-radius: .8rem;
+    margin-bottom: .7rem; /* Space between fields */
+}
+
+/* Adjust the text area as needed */
+form textarea {
+    resize: none;
+    margin-bottom: 15px;
+}
+
+/* Style the button */
+.button {
+    width: 100%; /* Full width */
+    margin-top: 2rem;
+    background: lawngreen;
+    padding: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+/* Adjust the contact section as needed */
+.contact .top-last {
+    width: 100%; /* Ensure it's full width */
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+}
+
+@media (min-width: 550px) and (max-width: 900px) {
+    .nav-links {
+                justify-content: center; /* Center the navigation links */
+                width: 100%; /* Ensure the nav links take full width */
+            }
+            nav img {
+    margin-right: 500px;
+    margin-top: -300px;
+    width: 150px;
+}
+.nav-toggle {
+        display: block; /* Show the toggle button */
+        position: fixed;
+        right: -360px; /* Adjust positioning */
+        top: 13px; /* Adjust positioning */
+        font-size: 30px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure it's above other content */
+    }
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 1460px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+}
+@media (min-width: 912px) and (max-width: 913px) {
+    .nav-links {
+                justify-content: center; /* Center the navigation links */
+                width: 100%; /* Ensure the nav links take full width */
+            }
+            nav img {
+                
+    margin-right: 500px;
+    margin-top: -300px;
+    width: 150px;
+}
+.nav-toggle {
+        display: block; /* Show the toggle button */
+        position: fixed;
+        right: -390px; /* Adjust positioning */
+        top: 50px; /* Adjust positioning */
+        font-size: 40px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure it's above other content */
+    }
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 920px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+    nav img {
+        margin-right: 700px;
+        margin-top: -400px;
+        width: 200px;
+    }
+}
+
+@media (min-width: 344px) and (max-width: 345px) {
+    .nav-toggle {
+        display: block; /* Show the toggle button */
+        position: fixed;
+        right: -150px; /* Adjust positioning */
+        top: 15px; /* Adjust positioning */
+        font-size: 24px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure it's above other content */
+    }
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+
+}
+@media (min-width: 540px) and (max-width: 541px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 1000px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+.nav-toggle {
+        display: block; /* Show the toggle button */
+        position: fixed;
+        right: -200px; /* Adjust positioning */
+        top: 20px; /* Adjust positioning */
+        font-size: 30px;
+        cursor: pointer;
+        background: transparent;
+        color: rgb(55, 188, 81);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure it's above other content */
+}
+}    
+@media (min-width: 390px) and (max-width: 391px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left; /* Align text to the left */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+}
+@media (min-width: 412px) and (max-width: 414px) {
+    
+ /* Keep the toggle button as is */
+.nav-toggle {
+    display: block; /* Show the toggle button */
+    position: fixed;
+    right: -170px; /* Adjust positioning */
+    top: 15px; /* Adjust positioning */
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    color: rgb(55, 188, 81);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 420px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+}
+
+@media (min-width: 430px) and (max-width: 431px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 440px; /* Adjust width as needed */
+    height: calc(51% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    text-align: left; /* Align text to the left */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+
+}
+
+   
+@media (min-width: 360px) and (max-width: 361px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 370px; /* Adjust width as needed */
+    height: calc(52% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left; /* Align text to the left */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+}
+
+  
+@media (min-width: 768px) and (max-width: 769px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 780px; /* Adjust width as needed */
+    height: calc(52% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left; /* Align text to the left */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+}
+
+@media (min-width: 853px) and (max-width: 854px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 840px; /* Adjust width as needed */
+    height: calc(52% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left; /* Align text to the left */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+}
+
+@media (min-width: 820px) and (max-width: 821px) {
+    .nav-links {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 810px; /* Adjust width as needed */
+    height: calc(52% - 0.90%);
+    background: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999; /* Ensure the menu is below the toggle button */
+    overflow: hidden;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center text */
+}
+
+/* Show navigation links when active */
+.nav-links.active {
+    transform: translateY(0);
+}
+
+/* Navigation links list */
+.nav-links ul {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Full width for the container */
+    flex-direction: column;
+}
+
+/* List items */
+.nav-links ul li {
+    margin: 0; /* Remove margin */
+    position: relative; /* Relative positioning for better control */
+}
+
+/* Navigation links */
+.nav-links ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid green; /* Green line under each link */
+    font-size: 18px;
+    display: block;
+    padding: 10px 0; /* Padding for spacing */
+    margin: 0 auto; /* Center links horizontally */
+    max-width: 100%; /* Ensure links can span the full width of their container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left; /* Align text to the left */
+    flex-direction: column;
+}
+
+/* Hover effect for navigation links */
+.nav-links ul li a:hover {
+    background: #f0f0f0;
+}
+}
+
+
+    </style>
+ <script>
+    function toggleNav() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+</script>
+<script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    });
+</script>
+
+
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="#"><img src="Logo.png" alt="Logo"></a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Contact</h1>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navToggle = document.querySelector('.nav-toggle');
+            var navLinks = document.querySelector('.nav-links');
+
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+    
+    </script>
+    <section class="contact">
+        <section class="top-last">
+            <h4>Send Us A Message</h4>
+        </section>
+    </section>
+
+    <form action="https://formsubmit.co/alvanchiwetel@gmail.com" method="POST" onsubmit="return validateForm()">
+        <div class="input-box">
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="Mobile Number">
+            <input type="text" placeholder="Email Subject">
+        </div>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send Message" class="button">
+    </form>
+
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Celebrity Sand and Granite - Building a reputation for quality, reliability, and exceptional service in the granite and sand industry. With a strong commitment to customer satisfaction, we strive to deliver <br>top-notch products and services that exceed expectations.</p>
+
+    
+        <div class="icons">
+            <a href="https://wa.me/2348037136667" target="_blank" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/fillingsand?sfnsn=scwspwa&mibextid=RUbZ1f" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/celebritysandandgrainte?utm_source=qr&igsh=eDllYW5oYXoyNnln" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://x.com/kachikwul?t=tbgd2Uu-TOo2tmDxFXVZvw&s=08" target="_blank" title="X (Twitter)"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/esiaka-katchy-christian-6b4862323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          </div>
+          
+
+
+
+              <p>Copyright &copy; 2024 by KiYOSET Code | All Rights Reserved.</p>
+    </section>
+
+</body>
+</html>
